@@ -65,5 +65,5 @@ class Calisan(insan):
             yeni_maas = self.__maas
         return f"Ad: {self.get_ad()}\n" \
                f"Soyad: {self.get_soyad()}\n" \
-               f"Tecrübe: {self.__tecrube} yıl\n" \
+               f"Tecrübe: {self.__tecrube} ay\n" \
                f"Yeni Maaş: {yeni_maas}"

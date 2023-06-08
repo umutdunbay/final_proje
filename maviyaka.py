@@ -1,6 +1,5 @@
 from calisan import Calisan
 
-
 class MaviYaka(Calisan):
     def __init__(self, tc_no, ad, soyad, yas, cinsiyet, uyruk, sektor, tecrube, maas, yipranma_payi):
         super().__init__(tc_no, ad, soyad, yas, cinsiyet, uyruk, sektor, tecrube, maas)
@@ -33,9 +32,9 @@ class MaviYaka(Calisan):
             return 0
 
     def __str__(self):
-        yeni_maas = self.get_maas() + (self.get_maas() * self.zam_hakki()) / 100
-        if yeni_maas == self.__maas:
-            yeni_maas = self.__maas
+        yeni_maas = Calisan.get_maas(self) + (Calisan.get_maas(self) * self.zam_hakki()) / 100
+        if yeni_maas == Calisan.get_maas(self):
+            yeni_maas = Calisan.get_maas(self)
         return f"Ad: {self.get_ad()}\n" \
                f"Soyad: {self.get_soyad()}\n" \
                f"Tecrübe: {self.get_tecrube()} ay\n" \

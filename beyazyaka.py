@@ -33,9 +33,9 @@ class BeyazYaka(Calisan):
             return 0
 
     def __str__(self):
-        yeni_maas = self.get_maas() + self.zam_hakki()
-        if yeni_maas == self.__maas:
-            yeni_maas = self.__maas
+        yeni_maas = Calisan.get_maas(self) + self.zam_hakki()
+        if yeni_maas == Calisan.get_maas(self):
+            yeni_maas = Calisan.get_maas(self)
         return f"Ad: {self.get_ad()}\n" \
                f"Soyad: {self.get_soyad()}\n" \
                f"Tecrübe: {self.get_tecrube()} ay\n" \

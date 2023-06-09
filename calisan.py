@@ -1,13 +1,20 @@
-from insan import insan
+# Insan class'ından kalıtım yoluyla kullanacağımız Issiz class'ı için
+# Öncelikle insan.py dosyasından Insan class'ını import ettik
+from insan import Insan
 
 
-class Calisan(insan):
+# Insan class'ına kalıtımla bağlı olacak olan Calisan class'ını oluşturduk
+class Calisan(Insan):
+    # Uygun değişkenler için Initializer metot kullandık
     def __init__(self, tc_no, ad, soyad, yas, cinsiyet, uyruk, sektor, tecrube, maas):
+        # Daha önceden tanımlı değişkenler için super(). metodunu uyguladık
         super().__init__(tc_no, ad, soyad, yas, cinsiyet, uyruk)
         self.__sektor = sektor
         self.__tecrube = tecrube
         self.__maas = maas
         self.__yeni_maas = None
+
+    # Gerekli set/get fonksiyonları ile değişkenlerimi ulaşılabilir ve kullanılabilir hale getirdik
     def get_yeni_maas(self):
         return self.__yeni_maas
 
@@ -51,15 +58,17 @@ class Calisan(insan):
 
         self.__maas = maas
 
+    # Zam hakkı fonksiyonu ile çalışanın tecrübesine ve maaşına bağlı olarak belirli bir oranda
+    # Zam oranının önerilmesini sağladık
     def zam_hakki(self):
         if self.get_tecrube() < 2:
             self.set_yeni_maas(self.get_maas())
         elif 2 <= self.get_tecrube() <= 4 and self.get_maas() < 15000:
             self.set_yeni_maas(self.get_maas() + self.get_maas() * (self.get_maas() % self.get_tecrube()) / 100)
         elif self.__tecrube > 4 and self.__maas < 25000:
-            self.set_yeni_maas(self.get_maas() + self.get_maas() * (self.get_maas() % self.get_tecrube()) /200)
+            self.set_yeni_maas(self.get_maas() + self.get_maas() * (self.get_maas() % self.get_tecrube()) / 200)
 
-
+    # Ekrana yazdırmak için kullanacağımız __str__ fonksiyonunu atadık
     def __str__(self):
         self.zam_hakki()
         return f"Ad: {self.get_ad()}\n" \

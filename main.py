@@ -13,19 +13,19 @@ import beyazyaka
 # Nesnelerimizi oluşturmak adına main fonksiyonumuzu oluşturduk
 def main():
     # İnsan sınıfı için örnek nesne ürettik
-    insan1 = insan.insan("13241203521", "Zekeriya", "Güven", 26, "Erkek", "Türkiye")
-    insan2 = insan.insan("98765432109", "Müge", "Oluçoğlu", 24, "Kadın", "Türkiye")
+    insan1 = insan.Insan("13241203521", "Zekeriya", "Güven", 26, "Erkek", "Türkiye")
+    insan2 = insan.Insan("98765432109", "Müge", "Oluçoğlu", 24, "Kadın", "Türkiye")
 
-    # Insan nesnelerini __str__ metodu ile yazdırdık
+    # Insan nesnelerini __str__ metodunu da kullanarak yazdırdık
     print(insan1)
     print("******************************************")
     print(insan2)
     print("******************************************")
 
     # Issiz sınıfı için 3 örnek nesne oluşturduk
-    issiz1 = issiz.Issiz("36123413516", "Mehmet", "Kara", 35, "Erkek", "Türkiye",2,10,1)
-    issiz2 = issiz.Issiz("98765432108", "Ali", "Yıldız", 28, "Erkek", "Türkiye",10,3,1)
-    issiz3 = issiz.Issiz("45123514623", "Ebru", "Koç", 40, "Kadın", "Türkiye",2,2,8)
+    issiz1 = issiz.Issiz("36123413516", "Mehmet", "Kara", 35, "Erkek", "Türkiye", 2, 10, 1)
+    issiz2 = issiz.Issiz("98765432108", "Ali", "Yıldız", 28, "Erkek", "Türkiye", 10, 3, 1)
+    issiz3 = issiz.Issiz("45123514623", "Ebru", "Koç", 40, "Kadın", "Türkiye", 2, 2, 8)
 
     # Issiz nesnelerini __str__ metodu ile yazdırdık
     print(issiz1)
@@ -63,7 +63,7 @@ def main():
 
     # BeyazYaka sınıfı için 3 örnek nesne oluşturduk
     beyazyaka1 = beyazyaka.BeyazYaka("70134910234", "Tugay", "Kavas", 20, "Erkek", "Suriye", "Diğer", 17, 12000, 500)
-    beyazyaka2 = beyazyaka.BeyazYaka("61145234626", "Alara", "Çarga", 25, "Kadın", "Türkiye", "Muhasebe", 57, 18547, 200)
+    beyazyaka2 = beyazyaka.BeyazYaka("61145234626", "Aleyna", "Tok", 25, "Kadın", "Türkiye", "Muhasebe", 57, 18547, 200)
     beyazyaka3 = beyazyaka.BeyazYaka("90412390419", "Emirhan", "Dost", 35, "Erkek", "Türkiye", "İnşaat", 39, 11257, 300)
 
     # BeyazYaka nesnelerini __str__ metodu ile yazdırdık
@@ -80,7 +80,7 @@ def main():
                     "Beyaz Yaka", "Beyaz Yaka"],
         "TC No": [calisan1.get_tc_no(), calisan2.get_tc_no(), calisan3.get_tc_no(),
                   maviyaka1.get_tc_no(), maviyaka2.get_tc_no(), maviyaka3.get_tc_no(),
-                  beyazyaka1.get_tc_no(), beyazyaka2.get_tc_no(),beyazyaka3.get_tc_no()],
+                  beyazyaka1.get_tc_no(), beyazyaka2.get_tc_no(), beyazyaka3.get_tc_no()],
         "Ad": [calisan1.get_ad(), calisan2.get_ad(), calisan3.get_ad(),
                maviyaka1.get_ad(), maviyaka2.get_ad(), maviyaka3.get_ad(),
                beyazyaka1.get_ad(), beyazyaka2.get_ad(), beyazyaka3.get_ad()],
@@ -88,9 +88,9 @@ def main():
                   maviyaka1.get_soyad(), maviyaka2.get_soyad(), maviyaka3.get_soyad(),
                   beyazyaka1.get_soyad(), beyazyaka2.get_soyad(), beyazyaka3.get_soyad()],
         "Yaş": [calisan1.get_yas(), calisan2.get_yas(), calisan3.get_yas(),
-                maviyaka1.get_yas(), maviyaka2.get_yas(),maviyaka3.get_yas(),
+                maviyaka1.get_yas(), maviyaka2.get_yas(), maviyaka3.get_yas(),
                 beyazyaka1.get_yas(), beyazyaka2.get_yas(), beyazyaka3.get_yas()],
-        "Cinsiyet": [calisan1.get_cinsiyet(), calisan2.get_cinsiyet(), calisan3.get_cinsiyet() ,
+        "Cinsiyet": [calisan1.get_cinsiyet(), calisan2.get_cinsiyet(), calisan3.get_cinsiyet(),
                      maviyaka1.get_cinsiyet(), maviyaka2.get_cinsiyet(), maviyaka3.get_cinsiyet(),
                      beyazyaka1.get_cinsiyet(), beyazyaka2.get_cinsiyet(), beyazyaka3.get_cinsiyet()],
         "Uyruk": [calisan1.get_uyruk(), calisan2.get_uyruk(), calisan3.get_uyruk(),
@@ -99,8 +99,8 @@ def main():
         "Sektör": [calisan1.get_sektor(), calisan2.get_sektor(), calisan3.get_sektor(), maviyaka1.get_sektor(),
                    maviyaka2.get_sektor(), maviyaka3.get_sektor(), beyazyaka1.get_sektor(), beyazyaka2.get_sektor(),
                    beyazyaka3.get_sektor()],
-        "Tecrübe (Yıl)": [calisan1.get_tecrube() // 12, calisan2.get_tecrube() // 12, calisan3.get_tecrube() // 12,
-                          maviyaka1.get_tecrube() // 12, maviyaka2.get_tecrube() // 12, maviyaka3.get_tecrube() // 12,
+        "Tecrübe (Yıl)": [calisan1.get_tecrube() / 12, calisan2.get_tecrube() / 12, calisan3.get_tecrube() / 12,
+                          maviyaka1.get_tecrube() / 12, maviyaka2.get_tecrube() / 12, maviyaka3.get_tecrube() / 12,
                           beyazyaka1.get_tecrube() / 12, beyazyaka2.get_tecrube() / 12, beyazyaka3.get_tecrube() / 12],
         "Maaş": [calisan1.get_maas(), calisan2.get_maas(), calisan3.get_maas(),
                  maviyaka1.get_maas(), maviyaka2.get_maas(), maviyaka3.get_maas(),
@@ -147,6 +147,9 @@ def main():
     print("\nYeni DataFrame:")
     print(yeni_df)
 
+# Main fonksiyonumuzu çağırarak kodumuzu başlattık
+
 
 if __name__ == "__main__":
+
     main()

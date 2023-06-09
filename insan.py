@@ -1,4 +1,7 @@
-class insan:
+# Uygun fonksiyonları atayacağımız ve bundan sonraki issiz,calisan class'larının kalıtım yoluyla
+# Alacağı Insan class'ını oluşturduk
+class Insan:
+    # Initializer metot ile değişkenlerimizi atadık
     def __init__(self, tc_no, ad, soyad, yas, cinsiyet, uyruk):
         self.__tc_no = tc_no
         self.__ad = ad
@@ -7,6 +10,7 @@ class insan:
         self.__cinsiyet = cinsiyet
         self.__uyruk = uyruk
 
+    # Gerekli set/get fonksiyonları ile değişkenlerimi ulaşılabilir ve kullanılabilir hale getirdik
     def get_tc_no(self):
         return self.__tc_no
 
@@ -43,6 +47,7 @@ class insan:
     def set_uyruk(self, uyruk):
         self.__uyruk = uyruk
 
+    # Ekrana yazdırmak için kullanacağımız __str__ fonksiyonunu atadık
     def __str__(self):
         return f"TC No: {self.__tc_no}\n" \
                f"Ad: {self.__ad}\n" \

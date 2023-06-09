@@ -7,6 +7,12 @@ class Calisan(insan):
         self.__sektor = sektor
         self.__tecrube = tecrube
         self.__maas = maas
+        self.__yeni_maas = None
+    def get_yeni_maas(self):
+        return self.__yeni_maas
+
+    def set_yeni_maas(self, yeni_maas):
+        self.__yeni_maas = yeni_maas
 
     def get_sektor(self):
         return self.__sektor
@@ -23,15 +29,11 @@ class Calisan(insan):
     def set_tecrube(self, tecrube):
         try:
             tecrube = int(tecrube)
+            if tecrube < 0:
+                print("Tecrübe ayı negatif olamaz.")
+            self.__tecrube = tecrube
         except ValueError:
             print("Lütfen ay değerinden geçerli bir tecrübe giriniz.")
-            return
-
-        if tecrube < 0:
-            print("Tecrübe ayı negatif olamaz.")
-            return
-
-        self.__tecrube = tecrube
 
     def get_maas(self):
         return self.__maas
@@ -50,20 +52,17 @@ class Calisan(insan):
         self.__maas = maas
 
     def zam_hakki(self):
-        if self.__tecrube < 2:
-            return 0
-        elif 2 <= self.__tecrube <= 4 and self.__maas < 15000:
-            return self.__maas % self.__tecrube
+        if self.get_tecrube() < 2:
+            self.set_yeni_maas(self.get_maas())
+        elif 2 <= self.get_tecrube() <= 4 and self.get_maas() < 15000:
+            self.set_yeni_maas(self.get_maas() + self.get_maas() * (self.get_maas() % self.get_tecrube()) / 100)
         elif self.__tecrube > 4 and self.__maas < 25000:
-            return (self.__maas % self.__tecrube) / 2
-        else:
-            return 0
+            self.set_yeni_maas(self.get_maas() + self.get_maas() * (self.get_maas() % self.get_tecrube()) /200)
+
 
     def __str__(self):
-        yeni_maas = self.__maas + (self.__maas * self.zam_hakki()) / 100
-        if yeni_maas == self.__maas:
-            yeni_maas = self.__maas
+        self.zam_hakki()
         return f"Ad: {self.get_ad()}\n" \
                f"Soyad: {self.get_soyad()}\n" \
-               f"Tecrübe: {self.__tecrube} ay\n" \
-               f"Yeni Maaş: {yeni_maas}"
+               f"Tecrübe: {self.get_tecrube()} ay\n" \
+               f"Yeni Maaş: {self.get_yeni_maas()}"
